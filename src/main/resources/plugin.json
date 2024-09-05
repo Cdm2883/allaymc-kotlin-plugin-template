@@ -1,0 +1,11 @@
+{
+  "entrance": "vip.cdms.allayplugin.KotlinPluginTemplate",
+  "name": "KotlinPluginTemplate",
+  "description": "Hello Allay from Kotlin!",
+  "authors": [
+    "Cdm2883"
+  ],
+  "version": "0.1.0-alpha",
+  "dependencies": [],
+  "website": "https://github.com/Cdm2883/allaymc-kotlin-plugin-template"
+}

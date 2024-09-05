@@ -1,21 +1,24 @@
 plugins {
     kotlin("jvm") version "2.0.20"
+    id("com.gradleup.shadow") version "8.3.0"
 }
 
-group = "vip.cdms"
-version = "1.0-SNAPSHOT"
+group = "vip.cdms.allayplugin"
+description = "Hello Allay from Kotlin!"
+version = "0.1.0-alpha"
 
 repositories {
     mavenCentral()
+    maven("https://www.jitpack.io/")
+    maven("https://repo.opencollab.dev/maven-releases/")
+    maven("https://repo.opencollab.dev/maven-snapshots/")
+    maven("https://storehouse.okaeri.eu/repository/maven-public/")
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    compileOnly(group = "com.github.AllayMC.Allay", name = "Allay-API", version = "master-SNAPSHOT")
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
 kotlin {
     jvmToolchain(21)
 }
