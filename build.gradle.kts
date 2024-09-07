@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly(group = "com.github.AllayMC.Allay", name = "Allay-API", version = "master-SNAPSHOT")
+    compileOnly(group = "org.allaymc.allay", name = "Allay-API", version = "master-SNAPSHOT")
 }
 
 kotlin {
