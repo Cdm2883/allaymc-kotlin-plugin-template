@@ -1,0 +1,40 @@
+name: Build a preview version
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/preview-build.yml'
+      - 'src/**'
+      - 'build.gradle.kts'
+      - 'settings.gradle.kts'
+  pull_request:
+    paths:
+      - '.github/workflows/preview-build.yml'
+      - 'src/**'
+      - 'build.gradle.kts'
+      - 'settings.gradle.kts'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout master
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'zulu'
+
+      - name: Build with Gradle
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :shadowJar
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: build/libs/*.jar
